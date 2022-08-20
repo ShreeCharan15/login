@@ -14,21 +14,40 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Basic info
+1. Google Auth added with NextAuth
+2. Bootstrap grid and utilities added
+3. Chakra UI setup
+4. Automatically handles sign in
 
-## Learn More
+## TODO
+1. Create .env.local with the content
+```
+GOOGLE_CLIENT_ID=<client ID>
+GOOGLE_CLIENT_SECRET=<client-secret>
+NEXTAUTH_SECRET=<next secret>
+NEXTAUTH_URL=https://example.com/custom-route/api/auth
+```
 
-To learn more about Next.js, take a look at the following resources:
+2. Change URL in /utils/auth/fetchPermissionsFromEmail.ts to the backend url
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Getting Signed In User in client side
+```
+import { useSession } from "next-auth/react"
+const {data:session} = useSession()
+let user=null
+if(session)
+    user=session.user
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Getting Signed In User in server side (getServerSideProps and getStaticProps)
+```
+import getSignedInUser from '../utils/auth/getSignedInUser'
+const session = let sess=await getSignedInUser(context);
+let user=null
+if(session)
+    user=session.user
+```
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
