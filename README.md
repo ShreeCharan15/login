@@ -27,10 +27,13 @@ You can start editing the page by modifying `pages/index.tsx`. The page auto-upd
 GOOGLE_CLIENT_ID=<client ID>
 GOOGLE_CLIENT_SECRET=<client-secret>
 NEXTAUTH_SECRET=<next secret>
-NEXTAUTH_URL=https://example.com/custom-route/api/auth
 ```
 
 2. Change URL in /utils/auth/fetchPermissionsFromEmail.ts to the backend url
+
+## During deployment, add
+NEXTAUTH_URL=https://example.com/custom-route/api/auth
+to .env.local
 
 ## Getting Signed In User in client side
 ```

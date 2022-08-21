@@ -38,11 +38,12 @@ async function refreshAccessToken(token) {
       throw refreshedTokens
     }
 
-    const perms=await fetchPermissionsFromEmail(token.user.email,token.user.id)
+    const perms=await fetchPermissionsFromEmail(token.user,(refreshedTokens.refresh_token ?? token.refreshToken), refreshedTokens.access_token)
+    console.log(perms);
     return {
       ...token,
       accessToken: refreshedTokens.access_token,
-      permissions:perms,
+      permissions:perms.permissions,
       accessTokenExpires: Date.now() + refreshedTokens.expires_in * 1000,
       refreshToken: refreshedTokens.refresh_token ?? token.refreshToken // Fall back to old refresh token
     }
@@ -76,7 +77,7 @@ export const authOptions={
       // Initial sign in
       
       if (account && user) {
-        const perms=await fetchPermissionsFromEmail(user.email,user.id)
+        const perms=await fetchPermissionsFromEmail(user, account.refresh_token, account.access_token)
         return {
           accessToken: account.access_token,
           accessTokenExpires: Date.now() + account.expires_in * 1000,
@@ -96,7 +97,7 @@ export const authOptions={
     },
     async session({ session, token }) {
       session.user = token.user
-      session.user.permissions=token.permissions
+      session.user.permissions = token.permissions
       session.accessToken = token.accessToken
       session.error = token.error
 

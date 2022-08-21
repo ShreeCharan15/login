@@ -6,7 +6,7 @@ import { SessionProvider } from "next-auth/react"
 import { useSession, signOut } from "next-auth/react"
 import { useEffect } from 'react'
 import { useRouter } from 'next/router';
-import { ChakraProvider,extendTheme } from '@chakra-ui/react'
+import { ChakraProvider,extendTheme, Spinner } from '@chakra-ui/react'
 import NavBar from '../components/Navbar';
 
 function MyApp({ Component, pageProps:{
@@ -46,7 +46,7 @@ const AuthWrapper=({children}:any)=>{
   if(status==="loading")
   return <div className='container d-flex flex-column justify-content-center' style={{"minHeight":"90vh"}}>
     <div className='d-flex justify-content-center'> 
-    Loading...
+    <Spinner></Spinner>
     </div>
   </div>;
 
