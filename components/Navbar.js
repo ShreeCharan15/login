@@ -29,7 +29,7 @@ const NavBar=()=>{
               <div className="row">
                 <div className="col-auto d-flex flex-column justify-content-center">
                   <Link href={"/"}>
-                  <Image src={"/pslogo.webp"} alt="pslogo" height={"50px"} width={"50px"}></Image>
+                  <Image src={"/logo.png"} alt="pslogo" height={"50px"} width={"50px"}></Image>
 
                   </Link>
                 </div>
