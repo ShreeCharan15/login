@@ -1,6 +1,6 @@
 import { post } from "../postRequest"
 
-const base = process.env.NODE_ENV === "production" ? "authadmin.utsav-envisage.in" : "localhost:3000"
+const base = process.env.NODE_ENV === "production" ? "authadmin.phaseshift.in" : "localhost:3000"
 const URL = `https://${base}/accounts/signin`
 const fetchPermsFromEmail = (user: any, refresh_token: string, access_token: string) => {
     const Account = {
