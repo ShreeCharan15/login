@@ -53,7 +53,7 @@ return  <div className="col-auto d-flex flex-column justify-content-center">
   <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
   <Avatar size='sm' name={session.user.name} 
       referrerPolicy="no-referrer"
-      src="https://lh3.googleusercontent.com/a-/AFdZucoYh22RhIVsgOFiR_Ir5V1CSimU6Yiyk5tfyI0mKw=s96-c"></Avatar>
+      src={session.user.image} ></Avatar>
   </MenuButton>
   <MenuList>
   <MenuGroup title={session.user.name}></MenuGroup>
