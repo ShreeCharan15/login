@@ -1,3 +1,7 @@
+USE THIS TO CREATE NEXT APPS WITH AUTH SETUP AND LINKED TO AUTHADMIN
+npx create-next-app <appname> -e https://github.com/ShreeCharan15/login
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
